@@ -1,0 +1,9 @@
+@import './base/fonts';
+@import './libs/reboot.min';
+
+.container {
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+@import './blocks/header';

@@ -19,10 +19,8 @@
     margin: 0 auto;
 }
 
+
 //Секции
 @import 'blocks/header';
 @import 'blocks/slider';
-
-.swiper-slide {
-    width: 1180px !important;
-}
+@import 'blocks/filter';

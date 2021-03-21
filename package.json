@@ -24,5 +24,8 @@
     "> 1%",
     "maintained node versions",
     "not dead"
-  ]
+  ],
+  "dependencies": {
+    "swiper": "^6.5.0"
+  }
 }

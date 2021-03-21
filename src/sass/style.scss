@@ -1,6 +1,9 @@
+//Шрифты, Сброс, Переменные
 @import 'base/fonts';
-@import 'libs/reboot';
 @import 'base/variables';
+@import 'libs/reboot';
+
+//Общие стили для всего сайта
 
 * {
     font-family: 'Segoe UI', 'sans-serif';
@@ -16,6 +19,10 @@
     margin: 0 auto;
 }
 
-
+//Секции
 @import 'blocks/header';
 @import 'blocks/slider';
+
+.swiper-slide {
+    width: 1180px !important;
+}

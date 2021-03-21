@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sushi-box</title>
     <link rel="stylesheet" href="css/style.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.min.css" />
 </head>
 <body>
     <header class="header">
@@ -88,25 +89,28 @@
 
     </header>
 
-    <section class="slider">
-        <div class="slider__wrapper">
-            <div class="slider__slide">
+    <section class="slider swiper-container">
+        <div class="slider__wrapper swiper-wrapper">
+
+            <div class="slider__slide swiper-slide">
                 <img src="img/slider/slide-1.jpg" alt="slide-1">
-                <div class="slider__arrows">
-                    <button class="slider__arrows-prev">
-                        <img src="icons/arrow-left.png" alt="arrow-left"></button>
-                    <button class="slider__arrows-next">
-                        <img src="icons/arrow-right.png" alt="arrow-right">
-                    </button>
-                </div>
             </div>
+
+            <div class="slider__slide swiper-slide">
+                <img src="img/slider/slide-2.jpg" alt="slide-2">
+            </div>
+
+            <div class="slider__slide swiper-slide">
+                <img src="img/slider/slide-2.jpg" alt="slide-3">
+            </div>
+
         </div>
         <div class="slider__dotts">
-            <div class="slider__dotts-item slider__dotts-item_active"></div>
-            <div class="slider__dotts-item"></div>
-            <div class="slider__dotts-item"></div>
-            <div class="slider__dotts-item"></div>
         </div>
     </section>
+
+    
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script type="module" src="js/main.js"></script>
 </body>
 </html>

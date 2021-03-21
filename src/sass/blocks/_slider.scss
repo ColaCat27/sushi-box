@@ -1,12 +1,16 @@
 .slider {
     position: relative;
-    padding-top: 34px;
+    overflow: hidden;
+    &__wrapper {
+        display: flex;
+        padding: 34px 0 30px 0;
+    }
     &__slide {
         position: relative;
         width: 1180px;
         height: 400px;
         margin: 0 auto;
-        filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.16));
+        filter: drop-shadow(0px 4px 10px rgba(0, 0, 0, 0.16));
         border-radius: 16px;
         img {
             width: 100%;
@@ -17,49 +21,29 @@
             border-radius: 16px;
         }
     }
-    &__arrows-prev, &__arrows-next {
-        position: absolute;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        border-radius: 100%;
-        border: none;
-        background-color: #fff;
-        top: 50%;
-        transform: translateY(-50%);
-        filter: drop-shadow(0px 4px 24px rgba(0, 0, 0, 0.16));
-        img {
-            width: 16px;
-            height: 14px;
-        }
-    }
-    &__arrows-prev {
-        left: -22px;
-    }
-    &__arrows-next {
-        right: -22px;
-    }
     &__dotts {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        bottom: 24px;
         display: flex;
-        &-item {
-            width: 16px;
-            height: 16px;
-            background-color: rgba(255,255,255,0.5);
-            border-radius: 100%;
-            margin-right: 24px;
-            cursor: pointer;
-            &:last-child {
-                margin-right: 0;
-            }
-            &_active {
-                background-color: rgba(255,255,255,1);
-            }
+        z-index: 10;
+    }
+}
+
+.swiper-pagination-bullets {
+    width: auto !important;
+    left: 50% !important;
+    transform: translateX(-50%);
+    bottom: 50px !important;
+    .swiper-pagination-bullet {
+        width: 16px;
+        height: 16px;
+        opacity: 1;
+        background-color: rgba(255,255,255,0.6);
+        border-radius: 100%;
+        cursor: pointer;
+        margin: 0 !important;
+        margin-right: 24px !important;
+        &-active {
+            background-color: rgba(255,255,255,1);
         }
     }
 }

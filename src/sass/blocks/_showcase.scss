@@ -1,0 +1,13 @@
+.showcase {
+    padding: 48px 0 140px 0;
+    &__title {
+        font-weight: 700;
+        font-size: 64px;
+        line-height: 85px;
+    }
+    &__wrapper {
+        display: flex;
+        margin-top: 48px;
+        flex-wrap: wrap;
+    }
+}

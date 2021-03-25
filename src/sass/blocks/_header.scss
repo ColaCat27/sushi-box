@@ -1,5 +1,8 @@
 .header {
     padding-top: 52px;
+    .container {
+        position: relative;
+    }
     &__wrapper {
         display: flex;
         align-items: center;
@@ -74,15 +77,26 @@
     }
     &__menu {
         margin-top: 34px;
+        &_active {
+            position: fixed;
+            width: 100%;
+            top:0;
+            left: 0;
+            background-color: #fff;
+            z-index:100;
+            margin-top: 0;
+            padding: 18px 0;
+            box-shadow: 0 0 25px 1px rgba(0,0,0,0.3);
+        }
     }
     &__list {
         list-style: none;
         margin-bottom: 0;
         padding-left: 0;
         display: flex;
+        flex-wrap: wrap;
     }
     &__item {
-        margin-right: 16px;
         &:last-child {
             margin-right: 0;
         }
@@ -92,24 +106,55 @@
         font-weight: 700;
         color: $texcol;
         text-decoration: none;
+        padding: 4px 8px;
+        border-radius: 4px;
+        &_active {
+            background-color: $yellow;
+        }
         &:hover {
             color: $texcol;
         }
     }
     &__cart {
+        position: relative;
         background-color: $yellow;
         color: $texcol;
         font-size: 16px;
         font-weight: 400;
         border: none;
-        padding: 10px 12px;
+        padding: 10px 12px 10px 44px;
         display: flex;
         align-items: center;
         border-radius: 4px;
-        img {
+        &:before {
+            content: '';
             width: 19px;
             height: 16px;
-            margin-right: 7px;
+            background: url('../../icons/cart.png') center ( center / cover ) no-repeat;
+            position: absolute;
+            top: 50%;
+            left: 16px;
+            transform: translateY(-50%);
+
+        }
+    }
+    &__filter {
+        position: relative;
+        padding: 4px 6px 4px 36px;
+        background-color: #F3F3F3;
+        display: none;
+        &_active {
+            display: block;
+        }
+        &:before {
+            content: '';
+            position: absolute;
+            background: url('../../icons/filter.png') center ( center / cover ) no-repeat;
+            width: 13.77px;
+            height: 11.64px;
+            top: 50%;
+            transform: translateY(-50%);
+            left: 12.74px;
         }
     }
 }

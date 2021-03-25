@@ -11,6 +11,24 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
 
+      function fixedHeader() {
+        const menu = document.querySelector('.header__menu'),
+              link = document.querySelector('.header__link');
+
+        let lastPos = 0;
+
+        window.addEventListener('scroll', () => {
+          if (pageYOffset > 300) {
+            menu.classList.add('header__menu_active');
+            link.classList.add('header__link_active');
+          } else if (pageYOffset === 0) {
+            menu.classList.remove('header__menu_acitve');
+            link.classList.remove('header__link_active');
+          }
+        })
+      }
+      fixedHeader();
+
     //Тестовый ховер скрипт для карточек, пока что не определился как лучше выполнить этот эффект.
     // function cardHover() {
     //   const cards = document.querySelectorAll('.card__wrapper'),

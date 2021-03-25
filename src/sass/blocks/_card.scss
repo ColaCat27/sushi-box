@@ -10,7 +10,8 @@
         position: relative;
         overflow: hidden;
         min-height: 371px;
-        transition: all .3s;
+        transition: all .1s;
+        cursor: pointer;
     }
     &__labels {
         position: absolute;
@@ -53,7 +54,10 @@
         margin-top: 30px;
         flex-wrap: wrap;
         min-height: 18px;
-        transition: all .3s;
+        transition: all .1s;
+        &_active {
+            margin-top: 18px;
+        }
     }
     &__name {
         font-weight: 700;
@@ -113,7 +117,10 @@
         color: #A3A3A3;
         margin-top: 8px;
         margin-bottom: 16px;
-        transition: all .3s;
+        transition: all .1s;
+        &_active {
+            margin-bottom: 0;
+        }
     }
     &__price {
         font-weight: 700;
@@ -142,7 +149,7 @@
         font-weight: 700;
         border: none;
         border-radius: 4px;
-        transition: all .3s;
+        display: none;
     }
     &__weight {
         display: block;
@@ -150,14 +157,14 @@
         line-height: 21px;
         margin-bottom: 10px;
         transition: all .3s;
+        display: none;
     }
     &__counts {
-        display: flex;
         background: #F3F3F3;
         border-radius: 4px;
         padding: 3px 3px;
         margin-bottom: 24px;
-        transition: all .3s;
+        display: none;
         &-item {
             width: 50%;
             border-radius: 4px;
@@ -173,12 +180,6 @@
     }
     &__wrapper {
         &:hover {
-            .card__block {
-                margin-top: 18px;
-            }
-            .card__descr {
-                margin-bottom: 0;
-            }
             .card__inner-wrapper {
                 position: absolute;
                 padding: 0 16px 20px 16px;
@@ -191,13 +192,14 @@
                 backdrop-filter: blur(5px);
             }
             .card__counts {
-            }
-            .card__weight {
-
+                display: flex;
             }
             .card__button {
+                display: block;
+            }
+            .card__weight {
+                display: block;
             }
         }
     }
-
 }

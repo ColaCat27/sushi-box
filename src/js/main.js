@@ -11,20 +11,60 @@ window.addEventListener('DOMContentLoaded', () => {
         }
       });
 
-    // const popup = () => {
-    //   const modal = document.querySelector('.popup'),
-    //   close = document.querySelector('.popup__close'),
-    //   card = document.querySelector('.card');
+    //Тестовый ховер скрипт для карточек, пока что не определился как лучше выполнить этот эффект.
+    // function cardHover() {
+    //   const cards = document.querySelectorAll('.card__wrapper'),
+    //         wrapp = document.querySelectorAll('.card__inner-wrapper'),
+    //         weight = document.querySelectorAll('.card__weight'),
+    //         counts = document.querySelectorAll('.card__counts'),
+    //         button = document.querySelectorAll('.card__button');
 
-    //   card.addEventListener('click', () => {
-    //     modal.classList.add('popup_active');
-    //     document.body.overflow = "hidden";
-    //   })
+    //         cards.forEach((item, i) => {
+    //           item.addEventListener('mouseenter', () => {
+    //             wrapp[i].classList.add('card__inner-wrapper_active');
+    //             const arr = [weight[i], counts[i], button[i]];
+    //             toggleHiddenClass(arr, true);
+    //             opacityToggle(arr, true)
+    //           });
+    //         });
 
-    //   close.addEventListener('click', () => {
-    //     modal.classList.remove('popup_active');
-    //     document.body.overflow = "";
-    //   });
+    //         cards.forEach((item, i) => {
+    //           item.addEventListener('mouseleave', () => {
+    //             wrapp[i].classList.remove('card__inner-wrapper_active');
+    //             const arr = [weight[i], counts[i], button[i]];
+    //             toggleHiddenClass(arr, false);
+    //             opacityToggle(arr, false)
+    //           })
+    //         })
+
+    //         function toggleHiddenClass(elems, off) {
+    //           if(off) {
+    //             elems.forEach(item => {
+    //               item.classList.remove('hidden');
+    //             });
+    //           } else {
+    //             elems.forEach(item => {
+    //               item.classList.add('hidden');
+    //             });
+    //           }
+
+    //         }
+
+    //         function opacityToggle(array, off) {
+    //           if(off) {
+    //             array.forEach(item => {
+    //               setTimeout(() => {
+    //                 item.style.opacity = '1';
+    //               }, 20)
+    //             });
+    //           } else {
+    //             array.forEach(item => {
+    //               setTimeout(() => {
+    //                 item.style.opacity = '0';
+    //               }, 20)
+    //             });
+    //           }
+    //         };
     // }
-    // popup();
+    // cardHover();
 });

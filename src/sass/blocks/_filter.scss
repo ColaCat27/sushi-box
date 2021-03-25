@@ -13,10 +13,14 @@
     }
     &__category {
         display: flex;
+        flex-wrap: wrap;
         list-style: none;
         margin-bottom: 0;
         padding-left: 0;
-        margin-top: 24px;
+        &-wrap {
+            margin-right: 8px;
+            margin-top: 24px;
+        }
         &-item {
             padding: 4px 8px;
             font-size: 16px;
@@ -24,7 +28,6 @@
             align-items: center;
             background-color: #fff;
             border-radius: 4px;
-            margin-right: 8px;
             cursor: pointer;
             &_hit {
                 background: #FF5E00;
@@ -48,10 +51,14 @@
     }
     &__content {
         list-style: none;
-        margin-bottom: 0;
+        margin: 0 -8px;
         padding-left: 0px;
         display: flex;
-        margin-top: 32px;
+        flex-wrap: wrap;
+        &-wrap {
+            padding: 0 8px;
+            margin-top: 32px;
+        }
         &-item {
             background-color: #fff;
             border-radius: 4px;

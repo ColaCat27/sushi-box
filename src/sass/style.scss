@@ -5,6 +5,10 @@
 
 //Общие стили для всего сайта
 
+html {
+    overflow-y: scroll;
+}
+
 * {
     font-family: 'Segoe UI', 'sans-serif';
     color: $texcol;
@@ -27,3 +31,4 @@
 @import 'blocks/showcase';
 @import 'blocks/card';
 @import 'blocks/footer';
+@import 'blocks/popup';

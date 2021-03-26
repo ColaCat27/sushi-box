@@ -11,6 +11,9 @@
         position: fixed;
         display: block;
     }
+    &__item {
+        margin-bottom: 20px;
+    }
     &__row {
         display: flex;
         align-items: center;

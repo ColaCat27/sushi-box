@@ -1,9 +1,16 @@
 .filter {
     padding-top: 24px;
+    &_active {
+        position: fixed;
+        width: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 100;
+    }
     &__block {
         background: #F3F3F3;
         border-radius: 16px;
-        padding: 32px 0 32px 48px;
+        padding: 32px 100px 32px 48px;
     }
     &__caption {
         font-weight: 700;

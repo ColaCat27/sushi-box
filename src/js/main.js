@@ -156,8 +156,9 @@ window.addEventListener('DOMContentLoaded', () => {
     }
 
     addProduct() {
-      const buttons = document.querySelectorAll(this.cardButtonSelector);
-      const cartWrapp = document.querySelector(this.cartSelector);
+      const buttons = document.querySelectorAll(this.cardButtonSelector),
+            cartWrapp = document.querySelector(this.cartSelector),
+            cartButton = document.querySelector(this.cartButtonSelector);
 
       buttons.forEach((item, i) => {
       item.addEventListener('click', () => {
@@ -175,6 +176,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
         //Добавляем товар в корзину
         this.cart.push(this.product);
+        let sum = 0;
+        this.cart.forEach(item => {
+          sum += item.price;
+        })
+        cartButton.style.fontWeight = '700';
+        cartButton.innerHTML = `${sum} ₽`;
 
         cartWrapp.innerHTML = '';
         this.cart.forEach(item => {
@@ -229,7 +236,6 @@ window.addEventListener('DOMContentLoaded', () => {
 
 const elem = new Cart('.cart', '.card__button', '.card__name', '.card__img img', '.card__price', '.header__cart');
 elem.addProduct();
-elem.showProduct();
 
 
     //Тестовый ховер скрипт для карточек, пока что не определился как лучше выполнить этот эффект.

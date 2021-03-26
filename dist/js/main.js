@@ -5,12 +5,13 @@ window.addEventListener('DOMContentLoaded', () => {
         centeredSlides: true,
         loop: true,
         spaceBetween: 30,
+        autoplay: true,
         pagination: {
           el: '.slider__dotts',
           clickable: true,
         }
       });
-      
+
       // Фиксируем хедер
       function fixedHeader() {
         const menu = document.querySelector('.header__menu'),
@@ -60,6 +61,9 @@ window.addEventListener('DOMContentLoaded', () => {
         
         window.addEventListener('scroll', () => {
             filter.classList.remove('filter_active');
+            document.querySelectorAll('.filter__divider').forEach(item => {
+              item.remove();
+            })
         });
 
         btn.addEventListener('click', (e) => {
@@ -102,6 +106,40 @@ window.addEventListener('DOMContentLoaded', () => {
       }
 
       fixedFilter();
+
+      //Корзина
+
+      function cart() {
+        const cartBtn = document.querySelector('.header__cart'),
+              modal = document.querySelector('.cart'),
+              menu = document.querySelector('.header__menu'),
+              header = document.querySelector('.header');
+        
+        const menuHeight = menu.clientHeight;
+        const headerHeight = header.clientHeight;
+        const cartSize = Number(window.getComputedStyle(modal).width.replace(/px/, ''));
+        const cartButtonSize = Number(window.getComputedStyle(cartBtn).width.replace(/px/, ''));
+
+        window.addEventListener('scroll', () => {
+          modal.classList.remove('cart_active');
+        });
+
+        cartBtn.addEventListener('click', () => {
+          if (header.classList.contains('header_active')) {
+            modal.style.top = `${headerHeight + 15}px`;
+          }
+          if (menu.classList.contains('header__menu_active')) {
+            modal.style.top = `${menuHeight + 36}px`;
+          }
+          if (!header.classList.contains('header_active') && !menu.classList.contains('header__menu_active')) {
+              modal.style.top = `${headerHeight + 15}px`;
+          }
+          let coord = cartBtn.getBoundingClientRect();
+          modal.classList.toggle('cart_active');
+          modal.style.left = `${coord.left - (cartSize - cartButtonSize)}px`;
+        });
+      }
+      cart();
 
     //Тестовый ховер скрипт для карточек, пока что не определился как лучше выполнить этот эффект.
     // function cardHover() {

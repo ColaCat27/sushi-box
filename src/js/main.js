@@ -13,18 +13,27 @@ window.addEventListener('DOMContentLoaded', () => {
 
       function fixedHeader() {
         const menu = document.querySelector('.header__menu'),
-              link = document.querySelector('.header__link');
+              link = document.querySelector('.header__link'),
+              header = document.querySelector('.header');
 
         let lastPos = 0;
 
         window.addEventListener('scroll', () => {
-          if (pageYOffset > 300) {
+          if (pageYOffset < lastPos && pageYOffset < 200) {
+            menu.classList.remove('header__menu_active');
+            link.classList.remove('header__link_active');
+            header.classList.remove('header_active');
+          } else if (pageYOffset > lastPos && pageYOffset > 200) {
             menu.classList.add('header__menu_active');
             link.classList.add('header__link_active');
-          } else if (pageYOffset === 0) {
-            menu.classList.remove('header__menu_acitve');
-            link.classList.remove('header__link_active');
+            if (header.classList.contains('header_active')) {
+              header.classList.remove('header_active');
+            }
+          } else if (pageYOffset < lastPos) {
+            menu.classList.remove('header__menu_active');
+            header.classList.add('header_active');
           }
+          lastPos = pageYOffset;
         })
       }
       fixedHeader();

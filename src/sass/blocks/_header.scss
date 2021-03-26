@@ -1,5 +1,14 @@
 .header {
     padding-top: 52px;
+    &_active {
+        position: fixed;
+        top: 0;
+        background-color: #fff;
+        width: 100%;
+        z-index: 100;
+        padding-bottom: 20px;
+        box-shadow: 0 0 25px 1px rgba(0,0,0,0.3);
+    }
     .container {
         position: relative;
     }

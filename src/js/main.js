@@ -3,10 +3,6 @@ import Card from '../js/modules/card.js';
 import data from '../js/modules/data.js';
 
 window.addEventListener('DOMContentLoaded', () => {
-    const card = new Card(data, '.showcase__wrapper', '.showcase__wrapper');
-    card.createCards();
-
-
     const swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         centeredSlides: true,
@@ -116,7 +112,12 @@ window.addEventListener('DOMContentLoaded', () => {
 
       // Добавление товара в корзину
 
-const elem = new Cart('.cart', '.card__button', '.card__name', '.card__img img', '.card__price', '.header__cart', '.cart__remove', '.header', '.header__menu');
-elem.init();
+
+const card = new Card(data, '.showcase__wrapper_classic', '.showcase__wrapper_branded');
+card.init();
+
+const cart = new Cart('.cart', '.card__button', '.card__name', '.card__img img', '.card__price', '.header__cart', '.cart__remove', '.header', '.header__menu', '.card__buttons');
+cart.init();
+
 
 });

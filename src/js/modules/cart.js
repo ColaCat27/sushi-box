@@ -1,5 +1,5 @@
 export default class Cart {
-    constructor(cartSelector, cardButtonSelector, cardNameSelector, cardImgSelector, cardPriceSelector, cartButtonSelector, cartRemoveSelector, headerSelector, headerMenuSelector) {
+    constructor(cartSelector, cardButtonSelector, cardNameSelector, cardImgSelector, cardPriceSelector, cartButtonSelector, cartRemoveSelector, headerSelector, headerMenuSelector, buttonsSmallSelector) {
       this.cart = [];
       this.cartElem = document.querySelector(cartSelector);
       this.cardButtons = document.querySelectorAll(cardButtonSelector);
@@ -10,6 +10,7 @@ export default class Cart {
       this.cartRemoveSelector = cartRemoveSelector;
       this.header =  document.querySelector(headerSelector);
       this.headerMenu = document.querySelector(headerMenuSelector);
+      this.buttonsSmall = document.querySelectorAll(buttonsSmallSelector);
     }
     getProductInfo() {
       this.cardButtons.forEach((item, i) => {
@@ -17,11 +18,14 @@ export default class Cart {
         //Получаем родителя нашей кликнутой кнопки
         const parent = item.parentElement.parentElement.parentElement;
         const info = {};
+        parent.classList.remove('card__wrapper_hover');
 
+        this.buttonsSmall[i].classList.add('card__buttons_active');
+        this.cardButtons[i].style.display = 'none';
         //Собираем инфу о выбранном продукте
         info.name = parent.querySelector(this.cardNameSelector).textContent;
         info.img = parent.querySelector(this.cardImgSelector).getAttribute('src');
-        info.count = 5;
+        info.count = Number(parent.querySelector('.card__counts-item_active').textContent.replace(/шт/, ''));
         info.weight = 120;
         info.id = i;
         info.price = Number(parent.querySelector(this.cardPriceSelector).textContent.replace(/₽/, ''));
@@ -72,8 +76,8 @@ export default class Cart {
     if (this.cart.length == 0) {
       this.cartElem.textContent = 'Вы ещё ничего не добавили в корзину';
     }
-    for (let item of this.cart) {
-         const elem = `<div class="cart__item">
+    this.cart.forEach(item => {
+      const elem = `<div class="cart__item" data-id="${item.id}">
           <div class="cart__row">
               <div class="cart__col">
                   <div class="cart__img">
@@ -116,7 +120,7 @@ export default class Cart {
           </div>
       </div>`;
       this.cartElem.insertAdjacentHTML('beforeEnd', elem);
-    }
+    })
   }
   changeSum() {
     let sum = 0;
@@ -134,10 +138,17 @@ export default class Cart {
 
   deleteProduct() {
     const cartRemoveButtons = document.querySelectorAll(this.cartRemoveSelector);
+    const cardWrappers = document.querySelectorAll('.card__wrapper');
+
     cartRemoveButtons.forEach((item, i) => {
       item.addEventListener('click', () => {
         this.cart.splice(i, 1);
-        this.addProduct();
+        const parent = item.parentElement.parentElement.parentElement;
+        const id = parent.getAttribute('data-id');
+        cardWrappers[id].classList.add('card__wrapper_hover');
+        this.buttonsSmall[id].classList.remove('card__buttons_active');
+        this.cardButtons[id].style.display = 'block';
+        this.addProduct(i);
         this.deleteProduct();
         this.changeSum();
       });

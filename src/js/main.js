@@ -1,7 +1,12 @@
 import Cart from '../js/modules/cart.js';
+import Card from '../js/modules/card.js';
+import data from '../js/modules/data.js';
 
 window.addEventListener('DOMContentLoaded', () => {
-    
+    const card = new Card(data, '.showcase__wrapper', '.showcase__wrapper');
+    card.createCards();
+
+
     const swiper = new Swiper('.swiper-container', {
         slidesPerView: 'auto',
         centeredSlides: true,

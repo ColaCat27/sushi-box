@@ -1,7 +1,6 @@
 export default class Cart {
     constructor(cartSelector, cardButtonSelector, cardNameSelector, cardImgSelector, cardPriceSelector, cartButtonSelector, cartRemoveSelector, headerSelector, headerMenuSelector) {
       this.cart = [];
-      this.product = {};
       this.cartElem = document.querySelector(cartSelector);
       this.cardButtons = document.querySelectorAll(cardButtonSelector);
       this.cardNameSelector = cardNameSelector;
@@ -17,17 +16,18 @@ export default class Cart {
       item.addEventListener('click', () => {
         //Получаем родителя нашей кликнутой кнопки
         const parent = item.parentElement.parentElement.parentElement;
+        const info = {};
 
         //Собираем инфу о выбранном продукте
-        this.product.name = parent.querySelector(this.cardNameSelector).textContent;
-        this.product.img = parent.querySelector(this.cardImgSelector).getAttribute('src');
-        this.product.count = 5;
-        this.product.weight = 120;
-        this.product.id = i;
-        this.product.price = Number(parent.querySelector(this.cardPriceSelector).textContent.replace(/₽/, ''));
+        info.name = parent.querySelector(this.cardNameSelector).textContent;
+        info.img = parent.querySelector(this.cardImgSelector).getAttribute('src');
+        info.count = 5;
+        info.weight = 120;
+        info.id = i;
+        info.price = Number(parent.querySelector(this.cardPriceSelector).textContent.replace(/₽/, ''));
 
         //Добавляем товар в корзину
-        this.cart.push(this.product);
+        this.cart.push(info);
 
         this.addProduct();
         this.deleteProduct();
@@ -115,7 +115,7 @@ export default class Cart {
               </div>
           </div>
       </div>`;
-      this.cartElem.insertAdjacentHTML('afterBegin', elem);
+      this.cartElem.insertAdjacentHTML('beforeEnd', elem);
     }
   }
   changeSum() {
